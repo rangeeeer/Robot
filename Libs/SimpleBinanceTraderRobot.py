@@ -1,7 +1,7 @@
 from binance.websockets import BinanceSocketManager
 from clint.textui import colored, puts
 from binance.client import Client
-from utls.algorythm import *
+from Libs.algorythm import *
 from binance.enums import *
 
 import pandas as pd
@@ -28,7 +28,6 @@ class simpleBinanceTraderRobot:
         self.__MAX_DF_DATA_SIZE=self.msinterval
         __t=self.msinterval*round(time.time()*1000/self.msinterval)
         for i in self.CoinList:
-            #histo=self.client.get_historical_klines(i, '1d', str(__t), str(__t+self.msinterval*50))
             self.dict_dataframes[i]=pd.DataFrame(data={   'time':[float(__t)],
                                                           'open':[float()],
                                                           'low':[float()],
